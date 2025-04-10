@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+import './App.css';
+
+import ChildComponent from './ChildComponent';
+
+function MyComponent() {
+  return <ChildComponent />;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const text = 'hellow world';
+
+  const handleClick = () => {
+    alert('test');
+  };
+
+  const listItems = [
+    <MyComponent key="0" />,
+    <MyComponent key="1" />,
+    <MyComponent key="2" />,
+  ];
+
+  const test = [
+    { content: 'neo', id: '001' },
+    { content: 'jack', id: '002' },
+    { content: 'wayne', id: '003' },
+  ];
+
+  const filterItems = test.filter((item) => {
+    if (item.content !== 'neo') {
+      return true;
+    }
+  });
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <button onClick={() => alert('test')}>test</button>
+      <button onClick={handleClick}>test</button>
+      <h1 style={{ backgroundColor: '#c4c4c4' }}>{text.toUpperCase()}</h1>
+      <input type="text" placeholder={text} />
+      <MyComponent />
+      {listItems}
+      {test.map((item) => {
+        return (
+          <div key={item.id}>
+            <h1>{item.content}</h1>
+          </div>
+        );
+      })}
+      {filterItems.map((item) => {
+        return (
+          <div key={item.id}>
+            <h1>{item.content}</h1>
+          </div>
+        );
+      })}
+      <div className={true ? 'a c' : 'b c'}>
+        {false ? <h1>hello</h1> : <h1>world</h1>}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className={`c ${true ? 'a' : 'b'}`}>
+        {false ? <h1>hello</h1> : <h1>world</h1>}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>{false && <h1>hello</h1>}</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
