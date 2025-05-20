@@ -5,6 +5,8 @@ import './App.css';
 
 import ChildComponent from './ChildComponent';
 
+import { useState } from 'react';
+
 function MyComponent() {
   return <ChildComponent />;
 }
@@ -33,6 +35,11 @@ function App() {
       return true;
     }
   });
+
+  const [clicks, setClicks] = useState(0);
+  const handleCliick = () => {
+    setClicks(clicks + 1);
+  };
 
   return (
     <>
@@ -63,6 +70,9 @@ function App() {
         {false ? <h1>hello</h1> : <h1>world</h1>}
       </div>
       <div>{false && <h1>hello</h1>}</div>
+      <div>
+        <button onClick={handleCliick}>點擊次數{clicks}</button>
+      </div>
     </>
   );
 }
