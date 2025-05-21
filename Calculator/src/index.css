@@ -16,3 +16,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.numpad li {
+  @apply p-1 rounded-full bg-gray-600 w-16 h-16 text-center;
+  line-height: 58px;
+}
+
+.numpad .operator {
+  @apply p-1 rounded-full bg-amber-600 w-16 h-16 text-center;
+  line-height: 58px;
+}
+
+.numpad li:hover {
+  background: #fff;
+  color: #333;
+}
