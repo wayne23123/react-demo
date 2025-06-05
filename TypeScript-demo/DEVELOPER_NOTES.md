@@ -49,3 +49,29 @@ module.exports = {
 @tailwind components;
 @tailwind utilities;
 ```
+
+typescript
+
+https://www.typescriptlang.org/
+
+npm install -g typescript
+
+tsc -v
+
+cd 到資料夾
+
+tsc test01.ts
+
+得到
+
+tsc test01.js
+
+tsc --init
+
+到 tsconfig.json 打開 "rootDir": "./", 功能
+
+"rootDir": "./src",
+
+到 tsconfig.json 打開  "outDir": "./",  功能
+
+"outDir": "./dist",
